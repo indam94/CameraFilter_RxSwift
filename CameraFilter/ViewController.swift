@@ -12,9 +12,11 @@ import RxSwift
 class ViewController: UIViewController {
 
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var applyFilterButton: UIButton!
     
     let disposeBag = DisposeBag()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,11 +32,35 @@ class ViewController: UIViewController {
         }
         photosController.selectedPhoto.subscribe(onNext: {[weak self] photo in
             
-            self?.photoImageView.image = photo
+            DispatchQueue.main.async {
+                self?.updateUI(with: photo)
+            }
+           
             
         }).disposed(by: disposeBag)
         
     }
+    
+    private func updateUI(with image: UIImage){
+        self.photoImageView.image = image
+        self.applyFilterButton.isHidden = false
+    }
 
+    
+    @IBAction func applyFilterButtonPressed(_ sender: Any) {
+        
+        guard let sourceImage = self.photoImageView.image else{
+            return
+        }
+     
+        FilterService().applyFilter(to: sourceImage){
+            filteredImage in
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = filteredImage
+            }
+            
+        }
+    }
 }
 

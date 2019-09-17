@@ -22,18 +22,22 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="672"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tva-DG-6ce">
-                                <rect key="frame" x="168" y="795" width="78" height="30"/>
+                                <rect key="frame" x="84" y="795" width="246" height="30"/>
                                 <state key="normal" title="Apply Filter"/>
+                                <connections>
+                                    <action selector="applyFilterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OnW-DZ-Acp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NSq-jZ-98J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7bq-gW-7zF"/>
-                            <constraint firstItem="Tva-DG-6ce" firstAttribute="top" secondItem="NSq-jZ-98J" secondAttribute="bottom" constant="35" id="DuC-2k-NEp"/>
                             <constraint firstItem="NSq-jZ-98J" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="OZH-GS-TE8"/>
+                            <constraint firstItem="Tva-DG-6ce" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="84" id="PH7-uE-9G3"/>
+                            <constraint firstItem="Tva-DG-6ce" firstAttribute="top" secondItem="NSq-jZ-98J" secondAttribute="bottom" constant="35" id="Soo-am-U5X"/>
+                            <constraint firstItem="Tva-DG-6ce" firstAttribute="centerX" secondItem="NSq-jZ-98J" secondAttribute="centerX" id="eWW-ZF-axy"/>
                             <constraint firstItem="NSq-jZ-98J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gpz-Db-ygn"/>
                             <constraint firstItem="NSq-jZ-98J" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="inc-h1-uhm"/>
-                            <constraint firstItem="Tva-DG-6ce" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="tZP-ud-LAV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -45,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ApplyFilterButton" destination="Tva-DG-6ce" id="kh2-Go-UyO"/>
                         <outlet property="photoImageView" destination="NSq-jZ-98J" id="gQA-BF-HfN"/>
                     </connections>
                 </viewController>
