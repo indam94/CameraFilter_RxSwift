@@ -60,7 +60,7 @@ class PhotosCollectionViewController : UICollectionViewController{
         
         let selectedAsset = self.images[indexPath.row]
         
-        PHImageManager.default().requestImage(for: selectedAsset, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFill, options: nil){
+        PHImageManager.default().requestImage(for: selectedAsset, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFit, options: nil){
             [weak self] image, info in
             
             guard let info = info else{return}
